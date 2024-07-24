@@ -5,7 +5,7 @@ OBJ=files.o
 .PHONY: clean
 
 %.o: %.c
-	$(CC) -c $@ $< $(CFLAGS)
+	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
 	rm -rf *.o
