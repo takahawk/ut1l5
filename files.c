@@ -8,7 +8,7 @@
 #include "d4t4-5tructur35/buffer.h"
 
 Buffer
-FILES_ReadFile(FILE *f) {
+uF_ReadFile(FILE *f) {
 	char* buffer;
 
 	if (!f) {
@@ -29,4 +29,19 @@ FILES_ReadFile(FILE *f) {
 	munmap(mapping, len);
 
 	return AsBuffer(buffer, len);
+}
+
+Buffer
+uF_ReadFileByName(char* filename) {
+	FILE *f = fopen(filename, "rb");
+
+	if (f == NULL) {
+		printf("Failed to open file: %s\n", filename);
+		return NullBuffer();
+	}
+
+	Buffer buf = uF_ReadFile(f);
+	fclose(f);
+
+	return buf;
 }

@@ -6,7 +6,12 @@
 #include "d4t4-5tructur35/buffer.h"
 
 // reads file to buffer. user is responsible for freeing buffer afterwards
+// returns NullBuffer on error
 Buffer
-FILES_ReadFile(FILE *file);
+uF_ReadFile(FILE *file);
+
+// same as uF_ReadFile, but opens file for you
+Buffer
+uF_ReadFileByName(char* filename);
 
 #endif
