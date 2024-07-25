@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-I.
+CFLAGS=-I. $(if $(NODEBUG),,-g)
 OBJ=files.o
 
 .PHONY: clean
