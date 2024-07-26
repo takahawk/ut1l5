@@ -13,7 +13,7 @@ uF_ReadFile(FILE *f) {
 
 	if (!f) {
 		printf("file is NULL\n");
-		return NullBuffer();
+		return B_Null();
 	}
 
 	fseek(f, 0, SEEK_END);
@@ -28,7 +28,7 @@ uF_ReadFile(FILE *f) {
 	memcpy(buffer, mapping, len);
 	munmap(mapping, len);
 
-	return AsBuffer(buffer, len);
+	return B_As(buffer, len);
 }
 
 Buffer
@@ -37,7 +37,7 @@ uF_ReadFileByName(char* filename) {
 
 	if (f == NULL) {
 		printf("Failed to open file: %s\n", filename);
-		return NullBuffer();
+		return B_Null();
 	}
 
 	Buffer buf = uF_ReadFile(f);
