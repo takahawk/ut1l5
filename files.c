@@ -28,7 +28,7 @@ uF_ReadFile(FILE *f) {
 	memcpy(buffer, mapping, len);
 	munmap(mapping, len);
 
-	return B_As(buffer, len);
+	return B_Wrap(buffer, len);
 }
 
 Buffer
