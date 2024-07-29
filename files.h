@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-#include "d4t4-5tructur35/buffer.h"
+#include "w/d4t4-5tructur35/buffer.h"
 
 // reads file to buffer. user is responsible for freeing buffer afterwards
 // returns null buffer on error
