@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-I. $(if $(NODEBUG),,-g)
 SRC=files.c
-HEADER=files.h
+HEADER=files.h io.h
 OBJ=$(SRC:.c=.o)
 
 INSTALL_INCLUDE_DIR ?= /usr/local/include/w/ut1l5
@@ -11,7 +11,7 @@ INSTALL_SRC_DIR ?= /usr/local/src/w/ut1l5
 SHARED_LIB = libut1l5.so
 .DEFAULT_GOAL := $(SHARED_LIB)
 
-.PHONY: clean
+.PHONY: clean check
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS)
@@ -30,6 +30,9 @@ install:
 	done
 	
 	cp $(SHARED_LIB) $(INSTALL_LIB_DIR)
+
+check:
+	$(CC) -fsyntax-only $(HEADER) $(SRC)
 
 clean:
 	rm -rf *.o
