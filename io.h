@@ -19,7 +19,7 @@
 	char*: _uIO_RedChar(X)  \
 	)
 
-#define _uIO_GreenChar(X) CLI_COLOR_RED X CLI_COLOR_RESET
+#define _uIO_GreenChar(X) CLI_COLOR_GREEN X CLI_COLOR_RESET
 #define _uIO_GreenString(X) _Generic(X, String: _uIO_MakeGreen, default: __uIO_Nop) (X)
 #define uIO_Green(X) _Generic(X, \
 	String: _uIO_GreenString(X), \
