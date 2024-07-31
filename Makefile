@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-I. $(if $(NODEBUG),,-g)
-SRC=files.c
-HEADER=files.h io.h
+SRC=describe.c files.c
+HEADER=describe.h files.h io.h
 OBJ=$(SRC:.c=.o)
 
 INSTALL_INCLUDE_DIR ?= /usr/local/include/w/ut1l5
