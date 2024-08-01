@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-I. $(if $(NODEBUG),,-g)
 SRC=describe.c files.c
-HEADER=describe.h files.h io.h
+HEADER=describe.h files.h io.h math.h
 OBJ=$(SRC:.c=.o)
 OBJ_PIC = $(OBJ:.o=_pic.o)
 
