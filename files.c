@@ -45,3 +45,33 @@ uF_ReadFileByName(char* filename) {
 
 	return buf;
 }
+
+void
+uF_WriteToFile(FILE *file, Buffer buf) {
+	void* data = buf.data;
+	size_t toWrite = buf.len;
+	while (toWrite != 0) {
+		size_t written = fwrite(data, 1, toWrite, file);
+		if (written > 0) {
+			data = data + written;
+			toWrite -= written;
+		}
+		if (written < 0) {
+			fprintf(stderr, "error writing to file");
+			return;
+		}
+	}
+}
+
+void
+uF_WriteToFileByName(char* filename, Buffer b) {
+	FILE *f = fopen(filename, "wb");
+
+	if (f == NULL) {
+		printf("Failed to open file: %s\n", filename);
+		return;
+	}
+
+	uF_WriteToFile(f, b);
+	fclose(f);
+}

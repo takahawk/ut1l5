@@ -14,4 +14,10 @@ uF_ReadFile(FILE *file);
 Buffer
 uF_ReadFileByName(char* filename);
 
+void
+uF_WriteToFile(FILE *file, Buffer buf); 
+
+void
+uF_WriteToFileByName(char* filename, Buffer buf);
+
 #endif
